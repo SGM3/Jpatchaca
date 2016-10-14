@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<artifactId>jpatchaca</artifactId>
+		<groupId>org.jpatchaca</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>jpatchaca-webstart</artifactId>
+	<packaging>jar</packaging>
+	<name>JPatchaca Webstart</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jpatchaca</groupId>
+			<artifactId>jpatchaca-system</artifactId>
+		</dependency>
+	</dependencies>
+
+
+	<url>http://autotelebuild/job/JPatchaca/lastSuccessfulBuild/artifact/jpatchaca-webstart/</url>
+
+	<organization>
+		<name>JPatchaca</name>
+		<url>http://jpatchaca.dev.java.net</url>
+	</organization>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>webstart-maven-plugin</artifactId>
+				<version>1.0-beta-3</version>
+
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jnlp</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<jnlp>
+						<allPermissions>true</allPermissions>
+						<j2seVersion>1.6+</j2seVersion>
+						<mainClass>main.Main</mainClass>
+						<offlineAllowed>true</offlineAllowed>
+						<outputFile>jpatchaca.jnlp</outputFile>
+						<spec>6.0+</spec>
+						<offline-allowed />
+					</jnlp>
+					<updatedManifestEntries>
+						<Manifest-Version>1.0</Manifest-Version>
+						<Application-Name>Jpatchaca</Application-Name>
+						<Codebase>*</Codebase>
+						<Permissions>all-permissions</Permissions>
+					</updatedManifestEntries>
+					<sign>
+						<keystore>../../../jpatchaca-system/ng.keystore</keystore>
+						<storepass>s0lutions</storepass>
+						<alias>ng</alias>
+						<dnameCn>Objective Solutions Consultoria e Desenvolvimento de
+							Sistemas Ltda</dnameCn>
+						<dnameOu>Objective Solutions</dnameOu>
+						<dnameC>BR</dnameC>
+						<verify>true</verify>
+						<keystoreConfig>
+							<delete>false</delete>
+							<gen>false</gen>
+						</keystoreConfig>
+					</sign>
+					<verbose>true</verbose>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/libs-milestone/</url>
+		</repository>
+	</repositories>
+</project>
