@@ -86,7 +86,7 @@ public class Worklog implements Comparable<Worklog> {
 
     //EMERGENCIAL 27/02/2012
     private boolean dentroDoPeriodoDeEnvio() {
-        final int NUM_OF_DAYS_ALLOWED_TO_SEND_WORKLOG = 3;
+        final int NUM_OF_DAYS_ALLOWED_TO_SEND_WORKLOG = 14;
 
         Calendar closeDate = nextMonth();
 

@@ -19,11 +19,13 @@ public class JiraIssueStatusManagement {
 
 	static {
 		developmentStatusList = new ArrayList<String>();
-		developmentStatusList.add("Desenvolvimento");
-		developmentStatusList.add("Tratamento");
+		// TODO: comment those lines on 2016/11/01 to avoid language problem
+		// developmentStatusList.add("Desenvolvimento");
+		// developmentStatusList.add("Tratamento");
 
 		impedimentStatusList = new ArrayList<String>();
-		impedimentStatusList.add("Impedido");
+		// TODO: comment those lines on 2016/11/01 to avoid language problem
+		// impedimentStatusList.add("Impedido");
 	}
 
 	public JiraIssueStatusManagement(final Jira jira) {
